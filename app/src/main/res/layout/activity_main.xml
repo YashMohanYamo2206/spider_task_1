@@ -51,7 +51,6 @@
         android:hint="number of rounds"
         android:inputType="number" />
     <EditText
-        android:layout_above="@+id/btn_vsComputer"
         android:id="@+id/et_p1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

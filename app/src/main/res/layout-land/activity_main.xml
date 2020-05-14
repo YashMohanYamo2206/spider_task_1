@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="vs computer"
+        android:onClick="Computer"
         android:id="@+id/btn_vsComputer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40sp"/>

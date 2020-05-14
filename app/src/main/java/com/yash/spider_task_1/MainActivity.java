@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText p1_name, p2_name, number_of_rounds;
@@ -22,19 +23,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start(View view) {
-        Intent intent = new Intent(MainActivity.this, player.class);
-        intent.putExtra("player_1_name", (p1_name).getText().toString());
-        intent.putExtra("player_2_name", (p2_name).getText().toString());
-        intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
-        startActivity(intent);
-        finish();
+        try {
+
+
+            Intent intent = new Intent(MainActivity.this, player.class);
+            intent.putExtra("player_1_name", (p1_name).getText().toString());
+            intent.putExtra("player_2_name", (p2_name).getText().toString());
+            intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+            Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
+            if (p1_name.getText().toString().equals("")) {
+                p1_name.setError("please give player-1 name");
+            }
+            if (p2_name.getText().toString().equals("")) {
+                p2_name.setError("please give player-1 name");
+            }
+            if (number_of_rounds.getText().toString().equals("")) {
+                number_of_rounds.setError("please give number of rounds");
+            }
+        }
     }
 
+
     public void Computer(View view) {
-        Intent intent = new Intent(MainActivity.this, computer.class);
-        intent.putExtra("player_1_name", (p1_name).getText().toString());
-        intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
-        startActivity(intent);
-        finish();
+        try {
+            Intent intent = new Intent(MainActivity.this, computer.class);
+            intent.putExtra("player_1_name", (p1_name).getText().toString());
+            intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+            Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
+            if (p1_name.getText().toString().equals("")) {
+                p1_name.setError("please give player name");
+            }
+            if (number_of_rounds.getText().toString().equals("")) {
+                number_of_rounds.setError("please give number of rounds");
+            }
+        }
     }
 }
