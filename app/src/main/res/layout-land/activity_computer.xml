@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/rl"
     android:layout_height="match_parent">
 
     <TextView
@@ -21,7 +22,6 @@
         android:textSize="30sp" />
 
     <LinearLayout
-        android:id="@+id/p1_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80sp"
@@ -32,10 +32,14 @@
             android:id="@+id/player_1_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:text="player_1_name"
-            android:textSize="40sp" />
+            android:layout_marginLeft="60sp"
+            android:textSize="20sp" />
 
         <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="60sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -45,37 +49,37 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
+                android:layout_marginLeft="30sp"
+                android:layout_gravity="left"
                 android:textSize="30sp" />
 
             <Button
                 android:id="@+id/p1_btn_stone"
-                android:layout_width="80sp"
-                android:layout_height="80sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="p1_selected_btn"
-                android:background="@drawable/stone" />
+                android:text="stone" />
 
             <Button
                 android:id="@+id/p1_btn_paper"
-                android:layout_width="80sp"
-                android:layout_height="80sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="p1_selected_btn"
-                android:background="@drawable/paper" />
+                android:text="paper" />
 
             <Button
                 android:id="@+id/p1_btn_scissors"
-                android:layout_width="80sp"
-                android:layout_height="80sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="p1_selected_btn"
-                android:background="@drawable/scissors" />
+                android:text="scissor" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:visibility="invisible"
-        android:id="@+id/iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -84,72 +88,47 @@
         <ImageView
             android:id="@+id/player_1_choice"
             android:layout_width="wrap_content"
-            android:layout_height="100sp"
+            android:layout_height="50sp"
             android:layout_marginTop="50sp"
             android:layout_weight="2" />
 
         <ImageView
             android:id="@+id/player_2_choice"
             android:layout_width="wrap_content"
-            android:layout_height="100sp"
+            android:layout_height="50sp"
             android:layout_marginTop="50sp"
             android:layout_weight="2" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/p2_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80sp"
-        android:gravity="center"
+        android:gravity="right"
+        android:layout_marginTop="80sp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/player_2_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="player_2_name"
-            android:textSize="40sp" />
+            android:text="COMPUTER"
+            android:layout_marginRight="40sp"
+            android:textSize="20sp" />
 
         <LinearLayout
+            android:layout_marginRight="60sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_p2_win"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_computer_win"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
+                android:gravity="right"
+                android:layout_marginRight="40sp"
                 android:textSize="30sp" />
-
-            <Button
-                android:enabled="false"
-                android:id="@+id/p2_btn_stone"
-                android:layout_width="80sp"
-                android:layout_height="80sp"
-                android:layout_weight="1"
-                android:onClick="p2_selected_btn"
-                android:background="@drawable/stone" />
-
-            <Button
-                android:enabled="false"
-                android:id="@+id/p2_btn_paper"
-                android:layout_width="80sp"
-                android:layout_height="80sp"
-                android:layout_weight="1"
-                android:onClick="p2_selected_btn"
-                android:background="@drawable/paper" />
-
-            <Button
-                android:enabled="false"
-                android:id="@+id/p2_btn_scissors"
-                android:layout_width="80sp"
-                android:layout_height="80sp"
-                android:layout_weight="1"
-                android:onClick="p2_selected_btn"
-                android:background="@drawable/scissors" />
         </LinearLayout>
     </LinearLayout>
 

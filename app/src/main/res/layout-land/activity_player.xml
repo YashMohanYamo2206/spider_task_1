@@ -21,7 +21,6 @@
         android:textSize="30sp" />
 
     <LinearLayout
-        android:id="@+id/p1_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80sp"
@@ -32,10 +31,14 @@
             android:id="@+id/player_1_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:text="player_1_name"
-            android:textSize="40sp" />
+            android:layout_marginLeft="60sp"
+            android:textSize="20sp" />
 
         <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="60sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -45,6 +48,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
+                android:layout_marginLeft="30sp"
+                android:layout_gravity="left"
                 android:textSize="30sp" />
 
             <Button
@@ -100,9 +105,8 @@
         android:id="@+id/p2_lo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="80sp"
-        android:gravity="center"
+        android:layout_marginTop="80sp"
+        android:gravity="right"
         android:orientation="vertical">
 
         <TextView
@@ -110,9 +114,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="player_2_name"
-            android:textSize="40sp" />
+            android:layout_marginRight="60sp"
+            android:textSize="20sp" />
 
         <LinearLayout
+            android:gravity="right"
+            android:layout_marginRight="60sp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -122,6 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="0"
+                android:layout_marginRight="30sp"
                 android:textSize="30sp" />
 
             <Button

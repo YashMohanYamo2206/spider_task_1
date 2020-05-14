@@ -13,15 +13,6 @@
         android:layout_weight="1">
 
         <EditText
-            android:id="@+id/et_p1_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginRight="20sp"
-            android:layout_weight="1"
-            android:hint="player_1_name" />
-
-        <EditText
             android:id="@+id/et_p2_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100sp"
         android:onClick="start"
-        android:text="start" />
+        android:text="vs player" />
 
     <EditText
         android:id="@+id/et_number_of_rounds"
@@ -59,4 +50,12 @@
         android:layout_weight="1"
         android:hint="number of rounds"
         android:inputType="number" />
+    <EditText
+        android:layout_above="@+id/btn_vsComputer"
+        android:id="@+id/et_p1_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100sp"
+        android:hint="player_1_name" />
 </RelativeLayout>

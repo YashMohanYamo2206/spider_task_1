@@ -1,15 +1,20 @@
 package com.yash.spider_task_1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.Random;
 
 public class computer extends AppCompatActivity {
@@ -17,6 +22,8 @@ public class computer extends AppCompatActivity {
     String p1Name;
     int number_of_rounds, p1Choice, p2Choice = 1, p1_win = 0, p2_win = 0;
     ImageView p1_choice, p2_choice;
+    Random computer_choice = new Random();
+    RelativeLayout rl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +38,8 @@ public class computer extends AppCompatActivity {
         p1_choice = findViewById(R.id.player_1_choice);
         p2_choice = findViewById(R.id.player_2_choice);
         p1Win = findViewById(R.id.tv_p1_win);
-        p2Win = findViewById(R.id.tv_p2_win);
+        p2Win = findViewById(R.id.tv_computer_win);
+        rl = findViewById(R.id.rl);
     }
 
     public void p1_selected_btn(View v) {
@@ -55,26 +63,122 @@ public class computer extends AppCompatActivity {
     }
 
     public void p2_selected_btn() {
-        Random computer_choice = new Random();
-        p2Choice = computer_choice.nextInt(2);
-        switch (p2Choice) {
+        int choice = computer_choice.nextInt(3);
+        p2Choice = choice;
+        switch (choice) {
             case 0:
                 p2_choice.setImageResource(R.drawable.paper);
-                number_of_rounds -= 1;
-                checkwinner();
-                rounds.setText(String.valueOf(number_of_rounds));
+                if (number_of_rounds >= 1) {
+                    number_of_rounds -= 1;
+                    rounds.setText(String.valueOf(number_of_rounds));
+                    checkwinner();
+                    if (number_of_rounds == 0) {
+                        String winner = "";
+                        if (p1_win > p2_win) {
+                            winner = p1Name + " wins...!!!!";
+                        } else if (p2_win > p1_win) {
+                            winner = "COMPUTER wins...!!!!";
+                        } else {
+                            winner = "DRAW..!!!";
+                        }
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                        dialog.setMessage(winner);
+                        dialog.setTitle("WINNER");
+                        dialog.setPositiveButton("NEW GAME", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(computer.this, MainActivity.class);
+                                finish();
+                                startActivity(intent);
+                            }
+                        });
+                        dialog.setNegativeButton("QUIT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+                        AlertDialog alertDialog = dialog.create();
+                        alertDialog.setCancelable(false);
+                        alertDialog.show();
+                    }
+                }
                 break;
             case 1:
                 p2_choice.setImageResource(R.drawable.scissors);
-                number_of_rounds -= 1;
-                checkwinner();
-                rounds.setText(String.valueOf(number_of_rounds));
+                if (number_of_rounds >= 1) {
+                    number_of_rounds -= 1;
+                    rounds.setText(String.valueOf(number_of_rounds));
+                    checkwinner();
+                    if (number_of_rounds == 0) {
+                        String winner = "";
+                        if (p1_win > p2_win) {
+                            winner = p1Name + " wins...!!!!";
+                        } else if (p2_win > p1_win) {
+                            winner = "COMPUTER wins...!!!!";
+                        } else {
+                            winner = "DRAW..!!!";
+                        }
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                        dialog.setMessage(winner);
+                        dialog.setTitle("WINNER");
+                        dialog.setPositiveButton("NEW GAME", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(computer.this, MainActivity.class);
+                                finish();
+                                startActivity(intent);
+                            }
+                        });
+                        dialog.setNegativeButton("QUIT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+                        AlertDialog alertDialog = dialog.create();
+                        alertDialog.setCancelable(false);
+                        alertDialog.show();
+                    }
+                }
                 break;
             case 2:
                 p2_choice.setImageResource(R.drawable.stone);
-                number_of_rounds -= 1;
-                checkwinner();
-                rounds.setText(String.valueOf(number_of_rounds));
+                if (number_of_rounds >= 1) {
+                    number_of_rounds -= 1;
+                    rounds.setText(String.valueOf(number_of_rounds));
+                    checkwinner();
+                    if (number_of_rounds == 0) {
+                        String winner = "";
+                        if (p1_win > p2_win) {
+                            winner = p1Name + " wins...!!!!";
+                        } else if (p2_win > p1_win) {
+                            winner = "COMPUTER wins...!!!!";
+                        } else {
+                            winner = "DRAW..!!!";
+                        }
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                        dialog.setMessage(winner);
+                        dialog.setTitle("WINNER");
+                        dialog.setPositiveButton("NEW GAME", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(computer.this, MainActivity.class);
+                                finish();
+                                startActivity(intent);
+                            }
+                        });
+                        dialog.setNegativeButton("QUIT", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+                        AlertDialog alertDialog = dialog.create();
+                        alertDialog.setCancelable(false);
+                        alertDialog.show();
+                    }
+                }
                 break;
         }
 
@@ -85,52 +189,35 @@ public class computer extends AppCompatActivity {
 
             if (p1Choice == 0 && p2Choice == 2) {
                 p1_win++;
-                p1Win.setText(String.valueOf(p1_win));
+                int c = p1_win;
+                p1Win.setText(String.valueOf(c));
+                rl.setBackgroundColor(Color.GREEN);
             } else if (p1Choice == 0 && p2Choice == 1) {
                 p2_win++;
-                p2Win.setText(String.valueOf(p2_win));
+                int c = p2_win;
+                p2Win.setText(String.valueOf(c));
+                rl.setBackgroundColor(Color.RED);
             } else if (p1Choice == 1 && p2Choice == 0) {
                 p1_win++;
-                p1Win.setText(String.valueOf(p1_win));
+                int c = p1_win;
+                p1Win.setText(String.valueOf(c));
+                rl.setBackgroundColor(Color.GREEN);
             } else if (p1Choice == 1 && p2Choice == 2) {
                 p2_win++;
-                p2Win.setText(String.valueOf(p2_win));
+                int c = p2_win;
+                p2Win.setText(String.valueOf(c));
+                rl.setBackgroundColor(Color.RED);
             } else if (p1Choice == 2 && p2Choice == 1) {
                 p1_win++;
-                p1Win.setText(String.valueOf(p1_win));
+                int c = p1_win;
+                p1Win.setText(String.valueOf(c));
+                rl.setBackgroundColor(Color.GREEN);
             } else if (p1Choice == 2 && p2Choice == 0) {
                 p2_win++;
-                p2Win.setText(String.valueOf(p2_win));
+                int c = p2_win;
+                p2Win.setText(String.valueOf(c));
+                rl.setBackgroundColor(Color.RED);
             }
-        } else {
-            String winner = "";
-            if (p1_win > p2_win) {
-                winner = p1Name + " wins...!!!!";
-            } else if (p2_win > p1_win) {
-                winner = "COMPUTER wins...!!!!";
-            } else {
-                winner = "DRAW..!!!";
-            }
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setMessage(winner);
-            dialog.setTitle("WINNER");
-            dialog.setPositiveButton("NEW GAME", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Intent intent = new Intent(computer.this, MainActivity.class);
-                    finish();
-                    startActivity(intent);
-                }
-            });
-            dialog.setNegativeButton("QUIT", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    finish();
-                }
-            });
-            AlertDialog alertDialog = dialog.create();
-            alertDialog.setCancelable(false);
-            alertDialog.show();
         }
     }
 
@@ -151,5 +238,29 @@ public class computer extends AppCompatActivity {
         AlertDialog alertDialog = dialog.create();
         alertDialog.setCancelable(false);
         alertDialog.show();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle b) {
+        super.onSaveInstanceState(b);
+
+        ColorDrawable color = (ColorDrawable) rl.getBackground();
+        int colorid = color.getColor();
+        b.putInt("number_of_rounds",number_of_rounds);
+        b.putInt("p1_win",p1_win);
+        b.putInt("p2_win",p2_win);
+        b.putInt("bg_color",colorid);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle b) {
+        super.onRestoreInstanceState(b);
+        number_of_rounds = b.getInt("number_of_rounds");
+        p1_win=b.getInt("p1_win");
+        p2_win=b.getInt("p2_win");
+        p1Win.setText(String.valueOf(p1_win));
+        p2Win.setText(String.valueOf(p2_win));
+        rounds.setText(String.valueOf(number_of_rounds));
+        rl.setBackgroundColor(b.getInt("bg_color"));
     }
 }

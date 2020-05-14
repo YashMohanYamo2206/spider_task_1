@@ -32,7 +32,7 @@
             />
     </LinearLayout>
     <Button
-        android:layout_below="@+id/et_rounds"
+        android:layout_below="@+id/et_number_of_rounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="vs computer"
@@ -42,7 +42,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start"
+        android:text="vs player"
         android:onClick="start"
         android:id="@+id/btn_start"
         android:layout_below="@+id/btn_vsComputer"
