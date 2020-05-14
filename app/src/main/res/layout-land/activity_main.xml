@@ -12,7 +12,6 @@
         android:id="@+id/lo_edittext"
         android:layout_below="@+id/btn_vsComputer"
         android:gravity="center"
-        android:layout_weight="1"
         >
         <EditText
             android:layout_width="wrap_content"
@@ -59,6 +58,5 @@
         android:layout_marginLeft="20sp"
         android:layout_marginTop="50sp"
         android:id="@+id/et_number_of_rounds"
-        android:layout_weight="1"
         />
 </RelativeLayout>

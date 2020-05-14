@@ -49,27 +49,27 @@
 
             <Button
                 android:id="@+id/p1_btn_stone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
                 android:layout_weight="1"
                 android:onClick="p1_selected_btn"
-                android:text="stone" />
+                android:background="@drawable/stone" />
 
             <Button
                 android:id="@+id/p1_btn_paper"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
                 android:layout_weight="1"
                 android:onClick="p1_selected_btn"
-                android:text="paper" />
+                android:background="@drawable/paper" />
 
             <Button
                 android:id="@+id/p1_btn_scissors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
                 android:layout_weight="1"
                 android:onClick="p1_selected_btn"
-                android:text="scissor" />
+                android:background="@drawable/scissors" />
         </LinearLayout>
     </LinearLayout>
 

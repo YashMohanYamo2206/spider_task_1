@@ -243,21 +243,26 @@ public class computer extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle b) {
         super.onSaveInstanceState(b);
-
-        ColorDrawable color = (ColorDrawable) rl.getBackground();
-        int colorid = color.getColor();
-        b.putInt("number_of_rounds",number_of_rounds);
-        b.putInt("p1_win",p1_win);
-        b.putInt("p2_win",p2_win);
-        b.putInt("bg_color",colorid);
+        try {
+            ColorDrawable color = (ColorDrawable) rl.getBackground();
+            int colorid = color.getColor();
+            b.putInt("number_of_rounds", number_of_rounds);
+            b.putInt("p1_win", p1_win);
+            b.putInt("p2_win", p2_win);
+            b.putInt("bg_color", colorid);
+        } catch (Exception e) {
+            b.putInt("number_of_rounds", number_of_rounds);
+            b.putInt("p1_win", p1_win);
+            b.putInt("p2_win", p2_win);
+        }
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle b) {
         super.onRestoreInstanceState(b);
         number_of_rounds = b.getInt("number_of_rounds");
-        p1_win=b.getInt("p1_win");
-        p2_win=b.getInt("p2_win");
+        p1_win = b.getInt("p1_win");
+        p2_win = b.getInt("p2_win");
         p1Win.setText(String.valueOf(p1_win));
         p2Win.setText(String.valueOf(p2_win));
         rounds.setText(String.valueOf(number_of_rounds));
