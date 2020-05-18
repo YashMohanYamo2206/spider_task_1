@@ -27,11 +27,28 @@ public class MainActivity extends AppCompatActivity {
 
 
             Intent intent = new Intent(MainActivity.this, player.class);
-            intent.putExtra("player_1_name", (p1_name).getText().toString());
-            intent.putExtra("player_2_name", (p2_name).getText().toString());
-            intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
-            startActivity(intent);
-            finish();
+            if (p1_name.getText().toString().equals("")) {
+                Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
+                p1_name.setError("please give player-1 name");
+                if (p2_name.getText().toString().equals("")) {
+                    p2_name.setError("please give player-2 name");
+                }
+                if (number_of_rounds.getText().toString().equals("")) {
+                    number_of_rounds.setError("please give number of rounds");
+                }
+            } else if (p2_name.getText().toString().equals("")) {
+                Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
+                p2_name.setError("please give player-2 name");
+                if (number_of_rounds.getText().toString().equals("")) {
+                    number_of_rounds.setError("please give number of rounds");
+                }
+            } else {
+                intent.putExtra("player_1_name", (p1_name).getText().toString());
+                intent.putExtra("player_2_name", (p2_name).getText().toString());
+                intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
+                startActivity(intent);
+                finish();
+            }
         } catch (Exception e) {
             Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
             if (p1_name.getText().toString().equals("")) {
@@ -49,18 +66,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void Computer(View view) {
         try {
-            Intent intent = new Intent(MainActivity.this, computer.class);
-            intent.putExtra("player_1_name", (p1_name).getText().toString());
-            intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
-            startActivity(intent);
-            finish();
+            if (p1_name.getText().toString().equals("")) {
+                Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
+                p1_name.setError("please give player-1 name");
+                if (number_of_rounds.getText().toString().equals("")) {
+                    number_of_rounds.setError("please give number of rounds");
+                }
+            } else if (number_of_rounds.getText().toString().equals("")) {
+                Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
+                number_of_rounds.setError("please give number of rounds");
+            } else {
+                Intent intent = new Intent(MainActivity.this, computer.class);
+                intent.putExtra("player_1_name", (p1_name).getText().toString());
+                intent.putExtra("number_of_rounds", Integer.parseInt((number_of_rounds).getText().toString()));
+                startActivity(intent);
+                finish();
+            }
         } catch (Exception e) {
             Toast.makeText(this, "PLEASE FILL THE REQUIRED DETAILS", Toast.LENGTH_SHORT).show();
             if (p1_name.getText().toString().equals("")) {
                 p1_name.setError("please give player name");
-            }
-            if (number_of_rounds.getText().toString().equals("")) {
-                number_of_rounds.setError("please give number of rounds");
             }
         }
     }

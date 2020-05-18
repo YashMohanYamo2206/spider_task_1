@@ -5,61 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <LinearLayout
+        android:id="@+id/lo_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:id="@+id/lo_edittext"
         android:layout_below="@+id/btn_vsComputer"
-        android:gravity="center"
-        >
+        android:layout_marginTop="20sp"
+        android:gravity="center">
+
         <EditText
             android:id="@+id/et_p1_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="player_1_name"
-            android:layout_marginRight="20sp"
             android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
             android:layout_weight="1"
-            />
+            android:hint="player_1_name" />
+
         <EditText
             android:id="@+id/et_p2_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="player_2_name"
-            android:layout_weight="1"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
-            />
+            android:layout_weight="1"
+            android:hint="player_2_name" />
     </LinearLayout>
+
     <Button
-        android:layout_below="@+id/et_number_of_rounds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="vs computer"
-        android:onClick="Computer"
         android:id="@+id/btn_vsComputer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_number_of_rounds"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40sp"/>
+        android:layout_marginTop="40sp"
+        android:onClick="Computer"
+        android:text="vs computer" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="vs player"
-        android:onClick="start"
         android:id="@+id/btn_start"
-        android:layout_below="@+id/btn_vsComputer"
-        android:layout_marginTop="100sp"
-        android:layout_centerHorizontal="true"
-        />
-    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="number of rounds"
-        android:inputType="number"
+        android:layout_below="@+id/btn_vsComputer"
         android:layout_centerHorizontal="true"
-        android:layout_marginRight="20sp"
+        android:layout_marginTop="100sp"
+        android:onClick="start"
+        android:text="vs player" />
+
+    <EditText
+        android:id="@+id/et_number_of_rounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20sp"
         android:layout_marginTop="50sp"
-        android:id="@+id/et_number_of_rounds"
-        />
+        android:layout_marginRight="20sp"
+        android:hint="number of rounds"
+        android:inputType="number" />
 </RelativeLayout>
